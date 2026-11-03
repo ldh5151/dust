@@ -1,0 +1,68 @@
+<!doctype html>
+<!-- 대기오염 측정 정보를 한국어로 보여주는 화면입니다. -->
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f7fb">
+    <title>우리 동네 대기질</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <header class="page-header">
+        <p class="eyebrow">에어코리아 실시간 정보</p>
+        <h1>우리 동네 대기질</h1>
+        <p class="intro">시도를 선택해 측정소별 대기오염 정보를 확인하세요.</p>
+      </header>
+
+      <section class="overview" aria-labelledby="average-title">
+        <div class="location-picker">
+          <label for="region-select">시도 선택</label>
+          <select id="region-select">
+            <option value="전국">전국</option>
+            <option value="서울" selected>서울</option>
+            <option value="부산">부산</option>
+            <option value="대구">대구</option>
+            <option value="인천">인천</option>
+            <option value="광주">광주</option>
+            <option value="대전">대전</option>
+            <option value="울산">울산</option>
+            <option value="세종">세종</option>
+            <option value="경기">경기</option>
+            <option value="강원">강원</option>
+            <option value="충북">충북</option>
+            <option value="충남">충남</option>
+            <option value="전북">전북</option>
+            <option value="전남">전남</option>
+            <option value="경북">경북</option>
+            <option value="경남">경남</option>
+            <option value="제주">제주</option>
+          </select>
+        </div>
+        <div class="average-panel">
+          <div>
+            <h2 id="average-title">서울 미세먼지 평균</h2>
+            <p class="average-caption">측정값이 있는 측정소 기준</p>
+          </div>
+          <p class="average-value"><span id="average-value">--</span><span class="unit">㎍/㎥</span></p>
+        </div>
+      </section>
+
+      <section class="stations-section" aria-labelledby="stations-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="stations-title">측정소별 정보</h2>
+            <p id="result-count" class="result-count">정보를 불러오는 중입니다.</p>
+          </div>
+          <p class="updated-label">자료 출처: 한국환경공단 에어코리아</p>
+        </div>
+        <div id="status-message" class="status-message" role="status" aria-live="polite">
+          대기오염 정보를 불러오고 있습니다.
+        </div>
+        <div id="station-list" class="station-grid" aria-live="polite"></div>
+      </section>
+    </main>
+  </body>
+</html>
